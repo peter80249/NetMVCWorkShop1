@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.CREATE_USER)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BOOK_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BOOK_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BOOK_ID })
+            @Html.ActionLink("Edit", "Edit", new { BOOK_ID = item.BOOK_ID }) |
+            @Html.ActionLink("Details", "Details", new { BOOK_ID = item.BOOK_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { BOOK_ID = item.BOOK_ID })
         </td>
     </tr>
 }

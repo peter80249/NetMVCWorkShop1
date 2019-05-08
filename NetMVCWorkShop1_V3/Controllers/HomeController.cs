@@ -32,5 +32,13 @@ namespace NetMVCWorkShop1_V3.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Delete(int BOOK_ID)
+        {
+            var dtbook = db.ER.Where(m => m.BOOK_ID == BOOK_ID).FirstOrDefault();
+            db.ER.Remove(dtbook);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }
