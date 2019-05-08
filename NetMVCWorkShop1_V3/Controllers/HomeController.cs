@@ -24,7 +24,6 @@ namespace NetMVCWorkShop1_V3.Controllers
             return View();
         }
         [HttpPost]
-
         public ActionResult Creat(ER newdata)
         {
             db.ER.Add(newdata);
@@ -40,5 +39,25 @@ namespace NetMVCWorkShop1_V3.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Edit(int BOOK_ID)
+        {
+            var ed = db.ER.Where(m => m.BOOK_ID == BOOK_ID).FirstOrDefault();
+            return View(ed);
+        }
+        [HttpPost]
+
+        public ActionResult Edit(ER EER)
+        {
+            int id = EER.BOOK_ID;
+            var ed = db.ER.Where(m => m.BOOK_ID == id).FirstOrDefault();
+            ed.BOOK_CLASS = EER.BOOK_CLASS;
+            ed.BOOK_NAME = EER.BOOK_NAME;
+            ed.BOOK_BOUGHT_DATE = EER.BOOK_BOUGHT_DATE;
+            ed.BOOK_STATUS = EER.BOOK_STATUS;
+            ed.CREATE_USER = EER.CREATE_USER;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+            
+        }
     }
 }
